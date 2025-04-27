@@ -1,0 +1,65 @@
+<div class="content">
+    <div class="selector-tabs">
+        <div class="pager">
+            <button mat-icon-button class="previous" (click)="selectPrevious()">
+                <mat-icon class="icon" svgIcon="chevron-icon"></mat-icon>
+            </button>
+            <button mat-icon-button class="next" (click)="selectNext()">
+                <mat-icon class="icon" svgIcon="chevron-icon"></mat-icon>
+            </button>
+        </div>
+        <mat-tab-group class="characters-tabs" #tabGroup>
+            <mat-tab *ngFor="let character of characters">
+                <ng-template mat-tab-label>
+                    <mat-icon class="circle-icon">circle</mat-icon>
+                </ng-template>
+                <ng-template [ngTemplateOutlet]="characterTemplate" [ngTemplateOutletContext]="{ character: character }"></ng-template>
+            </mat-tab>
+        </mat-tab-group>
+        
+    </div>
+</div>
+
+<ng-template #characterTemplate let-character="character">
+    <div class="stats" *ngIf="character">
+        <div class="stat side">
+            <div class="side icon-wrapper" [class]="getPowerSideClass(character.side?.name)">
+                <div class="side-icon"></div>
+            </div>
+            <div class="info-wrapper">
+                <span class="title">Oldal</span>
+                <span class="info">{{ getPowerSideText(character.side?.name) }}</span>
+            </div>
+        </div>
+        <div class="stat power">
+            <div class="special-power icon-wrapper">
+                <mat-icon class="special-power-icon" svgIcon="star-icon"></mat-icon>
+            </div>
+            <div class="info-wrapper">
+                <span class="title">Különleges erő</span>
+                <span class="info">{{ character.side?.power }}</span>
+            </div>
+        </div>
+    </div>
+    <div class="data-container" *ngIf="character">
+        <div class="character-infos">
+            <div class="name" [innerHTML]="character.name">
+            </div>
+            <div class="description">
+                {{ character.description }}
+            </div>
+        </div>
+        <div class="character-portrait">
+            <div class="picture" *ngIf="character.id">
+                <picture>
+                    <source [srcset]="getImageSrc(character.id, '3x')" media="(min-width: 1024px)" sizes="100vw">
+                    <source [srcset]="getImageSrc(character.id, '2x')" media="(min-width: 600px)" sizes="100vw">
+                    <img [src]="getImageSrc(character.id)" sizes="100vw">
+                </picture>
+            </div>
+            <div class="background">
+
+            </div>
+        </div>
+    </div>
+</ng-template>

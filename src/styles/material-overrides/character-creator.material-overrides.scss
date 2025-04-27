@@ -1,0 +1,90 @@
+@import 'colors.scss';
+
+.characters-tabs {
+
+  .mat-mdc-tab-body {
+    min-height: 80vh;
+    height: auto;
+  }
+
+  .mat-tab-label {
+    width: 40px; /* A tab mérete */
+    height: 40px;
+    border-radius: 50%; /* Kör alak */
+    background-color: #F7B500; /* Alap szín */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white; /* Szövegszín */
+    margin: 5px;
+  }
+  
+  .mat-tab-label-active {
+    background-color: #FFD166; /* Aktív tab színe */
+  }
+  
+  .mat-tab-label-container {
+    border-bottom: none !important; /* Az aláhúzás eltávolítása */
+  }
+
+  .mdc-tab-indicator__content {
+    border: none;
+  }
+
+  .mat-mdc-tab-labels {
+    justify-content: flex-end !important;
+    right: 160px;
+    position: relative;
+  }
+
+  .mat-tab-label {
+    transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
+  }
+
+  .mat-mdc-tab {
+    flex-grow: 0 !important;
+    padding: 0;
+    
+    
+
+    &:not(.mdc-tab--active) {
+      .circle-icon {
+        color: $colors-gray;
+        transform: scale(0.25);
+      }
+    }
+
+    &.mdc-tab--active {
+      .circle-icon {
+        transform: scale(0.25);
+        border: 2px solid $colors-white;
+        padding: 16px;
+        border-radius: 50%;
+      }
+    }
+    
+  }
+  
+    --mat-tab-header-active-hover-label-text-color: $colors-white;
+    --mdc-tab-indicator-active-indicator-color: $colors-white;
+    --mat-tab-header-active-label-text-color: $colors-white;
+    --mat-tab-header-active-ripple-color: $colors-white;
+    --mat-tab-header-inactive-ripple-color: $colors-white;
+    --mat-tab-header-active-focus-label-text-color: $colors-white;
+    --mat-tab-header-active-hover-label-text-color: $colors-white;
+    --mat-tab-header-active-focus-indicator-color: $colors-white;
+    --mat-tab-header-active-hover-indicator-color: $colors-white;
+
+    --mat-tab-header-inactive-hover-label-text-color: $colors-yellow;
+    --mdc-tab-indicator-inactive-indicator-color: red;
+    /*
+    --mat-tab-header-inactive-hover-label-text-color: $colors-gray;
+    --mdc-tab-indicator-inactive-indicator-color: $colors-gray;
+    --mat-tab-header-inactive-label-text-color: $colors-gray;
+    --mat-tab-header-active-ripple-color: $colors-gray;
+    --mat-tab-header-inactive-ripple-color: $colors-gray;
+    --mat-tab-header-inactive-focus-label-text-color: $colors-gray;
+    --mat-tab-header-inactive-hover-label-text-color: $colors-gray;
+    --mat-tab-header-inactive-focus-indicator-color: $colors-gray;
+    --mat-tab-header-inactive-hover-indicator-color: $colors-gray;*/
+  }

@@ -18,10 +18,7 @@ export class SessionProvider {
 
     private readonly USERDATA_KEY = 'user';
 
-    private userData: UserData | null = null;
-
     constructor(
-        private http: HttpClient,
         private router: Router,
         private authService: AuthService,
         @Inject(PLATFORM_ID) private platformId: Object
@@ -45,7 +42,7 @@ export class SessionProvider {
                     refreshToken: 'kaf5FAc2-eb78-4196-93ef-5a1e48a9Fjx',
                     user: {
                       email: 'frontend@webstar.hu',
-                      firstName: 'Pilóta',
+                      firstName: 'pilóta',
                       lastName: 'Felvételiző'
                     }
                 } as LoginResponseModel;
@@ -65,7 +62,7 @@ export class SessionProvider {
             localStorage.removeItem(this.JWT_TOKEN_KEY);
         }
     
-        return this.navigateToHomePage();
+        return this.navigateToCharacterSelectorPage();
     }
 
     setToken(token?: string | null | undefined): void {
@@ -86,6 +83,10 @@ export class SessionProvider {
     }
 
     getUser(): UserData | undefined {
+        if (!isPlatformBrowser(this.platformId)) {
+            return;
+        }
+
         const user = localStorage.getItem(this.USERDATA_KEY);
         if (user !== null && user !== undefined) {
         return JSON.parse(user);
@@ -110,7 +111,7 @@ export class SessionProvider {
         }
       }
     
-    navigateToHomePage() {
+    navigateToCharacterSelectorPage() {
         const redirectUrl = this.getRedirectUrl();
         return this.getToken()
           ? this.navigateSafe((router) => router.navigateByUrl('/' + redirectUrl))

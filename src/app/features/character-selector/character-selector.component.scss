@@ -1,0 +1,201 @@
+@import 'colors.scss';
+@import 'fonts.scss';
+
+:host {
+    display: flex;
+    background-image: url('/assets/img/bg_2.png');
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+
+    width: 100%;
+    color: white;
+}
+
+.character-wrapper {
+    display: flex;
+    flex-direction: row;
+}
+
+.content {
+    margin-top: 60px;
+    justify-content: center;
+    display: flex;
+    padding: 0 10%;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+
+    .selector-tabs {
+        padding-top: 24px;
+
+        .pager {
+            display: flex;
+            gap: 24px;
+            right: 10%;
+            position: absolute;
+            z-index: 100;
+
+            button {
+                border: 1px solid white;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                .icon {
+                    display: flex;
+                    margin-right: 4px;
+                    transform: scale(0.8);
+                }
+
+                &:hover {
+                    border-color: $colors-yellow;
+
+                    .icon {
+                        filter: brightness(0) saturate(100%) invert(85%) sepia(28%) saturate(7077%) hue-rotate(3deg) brightness(100%) contrast(101%);
+                    }
+                }
+
+                &.next {
+                    transform: rotate(180deg);
+                }
+            }
+        }
+
+        .characters-tabs {
+            position: relative;
+            left: 0;
+            float: left;
+            width: 100%;
+
+            .mat-mdc-tab {
+                .circle-icon {
+                    color: red !important;
+                }
+            }
+        }
+
+        .stats {
+            display: flex;
+            gap: 5em;
+            margin-bottom: 2em;
+
+            .stat {
+                display: flex;
+                gap: 16px;
+
+                .icon-wrapper {
+                    height: 50px;
+                    width: 50px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+
+                    &.side {
+                        .side-icon {
+                            height: 65%;
+                            width: 65%;
+                        }
+                        &.light {
+                            background-color: $colors-white;
+                            .side-icon {
+                                background-color: darken($colors-white, 5%);
+                            }
+                        }
+                        &.dark {
+                            background-color: $colors-white;
+                            .side-icon {
+                                height: 65%;
+                                width: 65%;
+                                background-color: $colors-black;
+                            }
+                        }
+                    }
+
+                    &.special-power {
+                        background-color: $colors-yellow;
+
+                        .special-power-icon {
+                            color: $colors-white;
+                            height: 34px !important;
+                            width: 34px !important;
+                        }
+                    }
+                }
+
+                .side-icon-wrapper {
+                    background-color: $colors-white;
+                    .side-icon {
+                        background-color: $colors-black;
+                    }
+                }                
+            }
+
+            .info-wrapper {
+                display: flex;
+                flex-direction: column;
+
+                .title {
+                    color: $colors-yellow;
+                    font-size: 16px;
+                    font-family: $font-poppinsBold;
+                    text-transform: uppercase;
+                }
+                .info {
+                    font-size: 20px;
+                    font-family: $font-poppinsBlack;
+                }
+            }
+        }
+    }
+
+    .data-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+
+        .character-infos {
+            .name {
+                font-family: $font-starJedi;
+                font-size: 90px;
+                line-height: 90px;
+                margin-bottom: 32px;
+                max-width: 50%;
+            }
+
+            .description {
+                font-family: $font-poppinsRegular;
+                font-size: 16px;
+            }
+        }
+
+        .character-portrait {
+            display: flex;
+            justify-content: center;
+            padding-top: 5em;
+
+            .background {
+                background: linear-gradient(to top, $colors-yellow, rgb(252 220 0));
+                height: 420px;
+                width: 420px;
+                border-radius: 50%;
+                position: absolute;
+                z-index: 0;
+            }
+    
+            picture {
+                display: flex;
+                height: 400px;
+                top: 12px;
+                left: -100px;
+                position: relative;
+                z-index: 1;
+                transform: scale(1.5);
+            }
+        }
+    }
+}
+
+
+

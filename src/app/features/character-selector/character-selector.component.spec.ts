@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CharacterCreatorComponent } from './character-creator.component';
+import { CharacterSelectorComponent } from './character-selector.component';
 
 describe('CharacterCreatorComponent', () => {
-  let component: CharacterCreatorComponent;
-  let fixture: ComponentFixture<CharacterCreatorComponent>;
+  let component: CharacterSelectorComponent;
+  let fixture: ComponentFixture<CharacterSelectorComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [CharacterCreatorComponent]
+      declarations: [CharacterSelectorComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(CharacterCreatorComponent);
+    fixture = TestBed.createComponent(CharacterSelectorComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

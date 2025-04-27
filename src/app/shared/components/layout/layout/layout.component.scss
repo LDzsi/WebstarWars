@@ -1,0 +1,52 @@
+@import 'colors.scss';
+@import 'fonts.scss';
+
+.header {
+    position: absolute;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+    .header-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 80%;
+        padding: 12px 0;
+        border-bottom: 1px solid $colors-white;
+    }
+
+    .header-item {
+        font-family: $font-poppinsBold;
+        font-size: 16px;
+        color: $colors-white;
+
+        .icon {
+            height: 1.5rem;
+            width: 1.5rem;
+        }
+    }
+
+    .user-name {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .logout-button {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        flex-direction: row-reverse;
+
+        &:hover {
+            .text {
+                color: $colors-yellow;
+            }
+
+            .icon {
+                filter: brightness(0) saturate(100%) invert(85%) sepia(28%) saturate(7077%) hue-rotate(3deg) brightness(100%) contrast(101%);
+            }
+        }
+    }
+}
