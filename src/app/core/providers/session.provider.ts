@@ -1,10 +1,11 @@
 import { Inject, Injectable, PLATFORM_ID } from "@angular/core";
 import { Router } from '@angular/router';
-import { HttpClient, HttpErrorResponse, HttpHeaders } from "@angular/common/http";
-import { lastValueFrom, Observable, tap } from "rxjs";
+import { HttpClient } from "@angular/common/http";
+import { lastValueFrom } from "rxjs";
 import { LoginResponseModel } from "../../../api/models/login-response";
 import { isPlatformBrowser } from "@angular/common";
 import { AuthService } from "../../services/login/auth.service";
+import { UserData } from "../../../api/models/user-data";
 
 @Injectable({
     providedIn: 'root',
@@ -15,7 +16,9 @@ export class SessionProvider {
     /* local storage-ben tárolt értékek kulcsai */
     private readonly JWT_TOKEN_KEY = 'jwttoken';
 
-    private readonly apiUrl = 'https://developer.webstar.hu/rest/frontend-felveteli/v2/authentication/';
+    private readonly USERDATA_KEY = 'user';
+
+    private userData: UserData | null = null;
 
     constructor(
         private http: HttpClient,
@@ -49,6 +52,7 @@ export class SessionProvider {
             } else { throw error; }
         }
 
+        this.setUserData(result.user);
         this.setToken(result.token);
 
         return await this.navigateSafe((router) =>
@@ -80,6 +84,31 @@ export class SessionProvider {
         const value = localStorage.getItem(this.JWT_TOKEN_KEY);
         return value !== null ? value : void 0;
     }
+
+    getUser(): UserData | undefined {
+        const user = localStorage.getItem(this.USERDATA_KEY);
+        if (user !== null && user !== undefined) {
+        return JSON.parse(user);
+        } else {
+        return undefined;
+        }
+    }
+
+    setUserData(user: UserData | undefined) {
+        if (user !== undefined) {
+          localStorage.setItem(this.USERDATA_KEY, JSON.stringify(user));
+        } else {
+          localStorage.removeItem(this.USERDATA_KEY);
+        }
+      }
+      getUserData(): UserData | undefined {
+        const user = localStorage.getItem(this.USERDATA_KEY);
+        if (user !== null && user !== undefined) {
+          return JSON.parse(user);
+        } else {
+          return undefined;
+        }
+      }
     
     navigateToHomePage() {
         const redirectUrl = this.getRedirectUrl();

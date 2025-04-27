@@ -1,0 +1,23 @@
+@import 'fonts.scss';
+.login-form {
+    .mat-mdc-text-field-wrapper  {
+      background-color: #fff;
+      border-radius: 10px;
+      height: 50px;
+    }
+
+    .mat-mdc-form-field-infix {
+        padding-top: 14px !important;
+    }
+  }
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    background-color: #fff;
+    transition: background-color 5000s ease-in-out 0s;
+    -webkit-box-shadow: 0 0 0 30px #fff inset !important;
+    
+    font-size: 16px;
+}

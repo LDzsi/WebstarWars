@@ -4,6 +4,7 @@ import { LoginResponseModel } from '../../../api/models/login-response';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { API_URLS } from '../../shared/constants';
 import { ConfigService } from '../config/config.service';
+import { Environment } from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -16,11 +17,13 @@ export class AuthService {
   ) {}
 
   login(username: string, password: string): Observable<LoginResponseModel> {
-    const headers = new HttpHeaders({
-      'Content-Type': 'application/json',
-      'Applicant-Id': "9MBJhDw35F"
-    });
+    return this.http.post<LoginResponseModel>(`${this.configService.getApiUrl(API_URLS.AUTH)}`, { username, password }, { headers: this.prepareHeader() });
+  }
 
-    return this.http.post<LoginResponseModel>(`${this.configService.getApiUrl(API_URLS.AUTH)}`, { username, password }, { headers });
+  private prepareHeader(): HttpHeaders {
+    return new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Applicant-Id': Environment.applicantId
+    });
   }
 }

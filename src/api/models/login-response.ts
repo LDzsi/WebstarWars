@@ -1,7 +1,7 @@
-import { LoginResponseUserModel } from "./login-response-user";
+import { UserData } from "./user-data";
 
 export interface LoginResponseModel {
     token: string;
     refreshToken: string;
-    user: LoginResponseUserModel;
+    user: UserData;
 }

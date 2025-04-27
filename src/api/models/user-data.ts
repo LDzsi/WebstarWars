@@ -1,4 +1,4 @@
-export interface LoginResponseUserModel {
+export interface UserData {
     email: string;
     firstName: string;
     lastName: string;

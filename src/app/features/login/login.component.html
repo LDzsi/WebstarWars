@@ -1,18 +1,32 @@
-<p>login works!</p>
-
-<div class="form-wrapper" [formGroup]="form">
-  <mat-form-field appearance="outline">
-    <mat-label>Username</mat-label>
-    <input matInput formControlName="username" type="text">
-  </mat-form-field>
-  <mat-form-field appearance="outline">
-      <mat-label>Password</mat-label>
-      <input matInput formControlName="password" type="password">
-  </mat-form-field>
-  <button mat-flat-button (click)="onLogin()">Bejelentkezés</button>
-  <div *ngIf="form.errors">
-    <div *ngIf="form.hasError('invalidCredentials')" class="alert">
-      A megadott hitelesítő adatok nem érvényesek.
+<div class="form-wrapper">
+  <div class="form-header">
+    <div class="title">
+      Webstar
+    </div>
+    <div class="subtitle">
+      Frontend
+    </div>
+  </div>
+  <div class="login-form" [formGroup]="form">
+    <div class="form-field">
+      <mat-label class="label">Felhasználónév</mat-label>
+      <mat-form-field appearance="outline">
+        <input matInput formControlName="username" type="text" autocomplete="false">
+      </mat-form-field>
+    </div>
+    <div class="form-field">
+      <mat-label class="label">Jelszó</mat-label>
+      <mat-form-field appearance="outline">
+          <input matInput formControlName="password" type="password">
+      </mat-form-field>
+    </div>
+    <div class="login-button-wrapper">
+      <button mat-flat-button (click)="onLogin()" class="login-button">Belépés</button>
+    </div>
+    <div *ngIf="form.errors">
+      <div *ngIf="form.hasError('invalidCredentials')" class="alert">
+        A megadott hitelesítő adatok nem érvényesek.
+      </div>
     </div>
   </div>
 </div>
