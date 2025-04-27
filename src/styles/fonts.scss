@@ -1,0 +1,65 @@
+// Starjedi
+@font-face {
+    font-family: 'StarJedi';
+    src: url('../assets/fonts/Starjedi.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+$font-starJedi: 'StarJedi', sans-serif;
+
+// Distant Galaxy
+@font-face {
+    font-family: 'DistantGalaxy';
+    src: url('../assets/fonts/SfDistantGalaxyAltoutline-e2Bp.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+$font-distantGalaxy: 'DistantGalaxy', sans-serif;
+
+// Poppins Black
+@font-face {
+    font-family: 'PoppinsBlack';
+    src: url('../assets/fonts/Poppins-Black.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+$font-poppinsBlack: 'PoppinsBlack', sans-serif;
+
+// Poppins Regular
+@font-face {
+    font-family: 'PoppinsRegular';
+    src: url('../assets/fonts/Poppins-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+$font-poppinsRegular: 'PoppinsRegular', sans-serif;
+
+
+// Poppins Medium
+@font-face {
+    font-family: 'PoppinsMedium';
+    src: url('../assets/fonts/Poppins-Medium.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+$font-poppinsMedium: 'PoppinsMedium', sans-serif;
+
+
+// Poppins Bold
+@font-face {
+    font-family: 'PoppinsBold';
+    src: url('../assets/fonts/Poppins-Bold.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+$font-poppinsBold: 'PoppinsBold', sans-serif;
+
+
+// Poppins ExtraBold
+@font-face {
+    font-family: 'PoppinsExtraBold';
+    src: url('../assets/fonts/Poppins-ExtraBold.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+$font-poppinsExtraBold: 'PoppinsExtraBold', sans-serif;
