@@ -12,7 +12,7 @@ export class LoginComponent {
   private redirectUrl?: string | null | undefined;
 
   public form = new UntypedFormGroup({
-    username: new UntypedFormControl(null, [Validators.required]),
+    username: new UntypedFormControl(null, [Validators.required, Validators.email]),
     password: new UntypedFormControl(null, [Validators.required]),
   });
 
@@ -20,26 +20,32 @@ export class LoginComponent {
     private session: SessionProvider
   ) {}
 
+  ngOnInit() {
+    this.redirectUrl = this.session.getRedirectUrl();
+  }
+
   async onLogin() {
     const username = this.form.get('username')?.value;
     const password = this.form.get('password')?.value;
 
+    if(this.form.invalid) {
+      this.form.setErrors({ 'invalidCredentials': true });
+      return;
+    }
+
     try {
-      const loginResult = this.session.login(username, password, this.redirectUrl);
-      if (loginResult === undefined || loginResult === null) {
+      const loginResult = await this.session.login(username, password, this.redirectUrl);
+      if (!loginResult) {
         this.form.setErrors({ 'invalidCredentials': true });
       }
     } catch (error) {
       // Egyéb logolás/hibakezelés
       console.log(error);
+      this.form.setErrors({ 'invalidCredentials': true });
     }
   }
 
   onLogout() {
     this.session.logout();
-  }
-  
-  ngOnInit() {
-    this.redirectUrl = this.session.getRedirectUrl();
   }
 }

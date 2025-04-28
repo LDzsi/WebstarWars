@@ -1,4 +1,4 @@
-<div class="header">
+<div class="header" [ngClass]="isMobile ? 'mobile' : 'desktop'">
     <div class="header-content">
         <ng-container *ngIf="userData">
             <div class="user-name header-item">
@@ -8,7 +8,9 @@
         </ng-container>
         <div class="logout-wrapper">
             <button mat-button (click)="logout()" class="logout-button header-item">
-                <span class="text">Űrhajó elhagyása</span>
+                @if(!isMobile) {
+                    <span class="text">{{ 'UI.Header.Logout' | translate }}</span>
+                }
                 <mat-icon class="icon" svgIcon="logout-icon"></mat-icon>
             </button>
         </div>

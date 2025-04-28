@@ -6,21 +6,14 @@ import { CharacterSelectorComponent } from '../features/character-selector/chara
 import { LayoutComponent } from '../shared/components/layout/layout/layout.component';
 
 const routes: Routes = [
-  /*
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
-  
-  { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
-  { path: 'characters', component: CharacterCreatorComponent, canActivate: [AuthGuard] },
-  { path: 'login', component: LoginComponent },
-  */
   {
     path: '',
-    redirectTo: 'character-selector', // Az alapértelmezett irányítás
+    redirectTo: 'character-selector',
     pathMatch: 'full'
   },
   {
     path: '',
-    component: LayoutComponent, // Layout lesz az alap
+    component: LayoutComponent,
     children: [
       { path: 'character-selector', component: CharacterSelectorComponent, canActivate: [AuthGuard] },
     ]

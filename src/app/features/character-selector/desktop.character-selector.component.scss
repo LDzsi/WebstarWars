@@ -1,33 +1,24 @@
-@import 'colors.scss';
-@import 'fonts.scss';
+@use 'colors.scss';
+@use 'fonts.scss';
 
-@import 'mobile.character-selector.component.scss';
-@import 'desktop.character-selector.component.scss';
-
-:host {
+.content.desktop {
+    margin-top: 60px;
+    justify-content: center;
     display: flex;
-    background-image: url('/assets/img/bg_2.png');
-    background-size: cover;
-    background-position: center top;
-    background-repeat: no-repeat;
-    min-height: 100vh;
-
+    padding: 0 10%;
     width: 100%;
-    color: white;
-}
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
 
-.character-wrapper {
-    display: flex;
-    flex-direction: row;
-}
-
-.content {
     .selector-tabs {
+        padding-top: 24px;
 
         .pager {
             display: flex;
             gap: 24px;
             right: 10%;
+            position: absolute;
             z-index: 100;
 
             button {
@@ -64,13 +55,15 @@
 
             .mat-mdc-tab {
                 .circle-icon {
-                    color: red !important;
+                    color: $colors-white !important;
                 }
             }
         }
 
         .stats {
             display: flex;
+            gap: 5em;
+            margin-bottom: 2em;
 
             .stat {
                 display: flex;
@@ -142,35 +135,30 @@
     }
 
     .data-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+
         .character-infos {
             .name {
-                font-family: $font-starJedi;
-                margin-bottom: 32px;
-                max-width: 50%;
-            }
-
-            .description {
-                font-family: $font-poppinsRegular;
-                font-size: 16px;
+                font-size: 90px;
+                line-height: 90px;
             }
         }
 
         .character-portrait {
-            display: flex;
-            justify-content: center;
+            padding-top: 5em;
 
             .background {
-                background: linear-gradient(to top, $colors-yellow, rgb(252 220 0));
-                border-radius: 50%;
-                position: absolute;
-                z-index: 0;
+                height: 420px;
+                width: 420px;
             }
     
+            .picture {
+                position: absolute;
+            }
+
             picture {
-                display: flex;
-                height: 400px;
-                position: relative;
-                z-index: 1;
+                transform: scale(1.5);
             }
         }
     }

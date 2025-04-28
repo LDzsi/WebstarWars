@@ -1,0 +1,33 @@
+{
+    "UI": {
+        "Login": {
+            "Login": "Log in",
+            "Username": "Username",
+            "Password": "Password",
+            "Header": {
+                "Title": "Webstar",
+                "Subtitle": "Frontend"
+            }
+        },
+        "CharacterSelector": {
+            "Side": "Side",
+            "SpecialForces": "Special forces"
+        },
+        "Header": {
+            "Logout": "Abandon ship"
+        },
+        "Common": {
+            "Force": {
+                "Light": "Light",
+                "Dark": "Dark"
+            },
+            "Errors": {
+                "FieldRequired": "Required field",
+                "InvalidCredentials": "The given credentials are invalid."
+            }
+        },
+        "Footer": {
+            "Copyright": "Webstar Csoport Kft. - © All rights reserved"
+        }
+    }
+}

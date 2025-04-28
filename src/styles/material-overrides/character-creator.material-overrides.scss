@@ -1,30 +1,39 @@
-@import 'colors.scss';
+@use 'colors.scss';
 
 .characters-tabs {
+
+  .mat-mdc-tab-header {
+    padding: 8px 0;
+  }
 
   .mat-mdc-tab-body {
     min-height: 80vh;
     height: auto;
+
+    &,
+    .mat-mdc-tab-body-content {
+      overflow-x: hidden !important;
+    }
   }
 
   .mat-tab-label {
-    width: 40px; /* A tab mérete */
+    width: 40px;
     height: 40px;
-    border-radius: 50%; /* Kör alak */
-    background-color: #F7B500; /* Alap szín */
+    border-radius: 50%;
+    background-color: #F7B500;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: white; /* Szövegszín */
+    color: white;
     margin: 5px;
   }
   
   .mat-tab-label-active {
-    background-color: #FFD166; /* Aktív tab színe */
+    background-color: #FFD166;
   }
   
   .mat-tab-label-container {
-    border-bottom: none !important; /* Az aláhúzás eltávolítása */
+    border-bottom: none !important;
   }
 
   .mdc-tab-indicator__content {
@@ -62,7 +71,6 @@
         border-radius: 50%;
       }
     }
-    
   }
   
     --mat-tab-header-active-hover-label-text-color: $colors-white;
@@ -76,15 +84,5 @@
     --mat-tab-header-active-hover-indicator-color: $colors-white;
 
     --mat-tab-header-inactive-hover-label-text-color: $colors-yellow;
-    --mdc-tab-indicator-inactive-indicator-color: red;
-    /*
-    --mat-tab-header-inactive-hover-label-text-color: $colors-gray;
-    --mdc-tab-indicator-inactive-indicator-color: $colors-gray;
-    --mat-tab-header-inactive-label-text-color: $colors-gray;
-    --mat-tab-header-active-ripple-color: $colors-gray;
-    --mat-tab-header-inactive-ripple-color: $colors-gray;
-    --mat-tab-header-inactive-focus-label-text-color: $colors-gray;
-    --mat-tab-header-inactive-hover-label-text-color: $colors-gray;
-    --mat-tab-header-inactive-focus-indicator-color: $colors-gray;
-    --mat-tab-header-inactive-hover-indicator-color: $colors-gray;*/
+    --mdc-tab-indicator-inactive-indicator-color: $colors-white;
   }

@@ -1,4 +1,4 @@
-<div class="content">
+<div class="content" [ngClass]="isMobile ? 'mobile' : 'desktop'">
     <div class="selector-tabs">
         <div class="pager">
             <button mat-icon-button class="previous" (click)="selectPrevious()">
@@ -27,7 +27,7 @@
                 <div class="side-icon"></div>
             </div>
             <div class="info-wrapper">
-                <span class="title">Oldal</span>
+                <span class="title">{{ 'UI.CharacterSelector.Side' | translate }}</span>
                 <span class="info">{{ getPowerSideText(character.side?.name) }}</span>
             </div>
         </div>
@@ -36,7 +36,7 @@
                 <mat-icon class="special-power-icon" svgIcon="star-icon"></mat-icon>
             </div>
             <div class="info-wrapper">
-                <span class="title">Különleges erő</span>
+                <span class="title">{{ 'UI.CharacterSelector.SpecialForces' | translate }}</span>
                 <span class="info">{{ character.side?.power }}</span>
             </div>
         </div>
@@ -45,8 +45,7 @@
         <div class="character-infos">
             <div class="name" [innerHTML]="character.name">
             </div>
-            <div class="description">
-                {{ character.description }}
+            <div class="description" [innerHTML]="character.description">
             </div>
         </div>
         <div class="character-portrait">

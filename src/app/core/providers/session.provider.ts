@@ -1,10 +1,9 @@
 import { Inject, Injectable, PLATFORM_ID } from "@angular/core";
 import { Router } from '@angular/router';
-import { HttpClient } from "@angular/common/http";
 import { lastValueFrom } from "rxjs";
 import { LoginResponseModel } from "../../../api/models/login-response";
 import { isPlatformBrowser } from "@angular/common";
-import { AuthService } from "../../services/login/auth.service";
+import { AuthService } from "../../services/auth/auth.service";
 import { UserData } from "../../../api/models/user-data";
 
 @Injectable({
@@ -12,10 +11,7 @@ import { UserData } from "../../../api/models/user-data";
 })
 export class SessionProvider {
     private readonly REDIRECTURL_KEY = 'RedirectUrl';
-
-    /* local storage-ben tárolt értékek kulcsai */
     private readonly JWT_TOKEN_KEY = 'jwttoken';
-
     private readonly USERDATA_KEY = 'user';
 
     constructor(
@@ -30,12 +26,7 @@ export class SessionProvider {
         try {
             result = await lastValueFrom(this.authService.login(username, password));
         } catch (error) {
-            /*
-            if (error instanceof HttpErrorResponse && error.status === 0) {
-                return false;
-            }
-            throw error;
-            */
+            // INDO: README-ben!
             if(username === 'frontend@webstar.hu' && password === 's9@:8BpuC]*Q,e,A') {
                 result = {
                     token: 'eyJhbGci-f433-4eca-940e-fa222ad4kZo',
@@ -82,6 +73,22 @@ export class SessionProvider {
         return value !== null ? value : void 0;
     }
 
+    setUserData(user: UserData | undefined) {
+        if (user !== undefined) {
+            localStorage.setItem(this.USERDATA_KEY, JSON.stringify(user));
+        } else {
+            localStorage.removeItem(this.USERDATA_KEY);
+        }
+    }
+    getUserData(): UserData | undefined {
+        const user = localStorage.getItem(this.USERDATA_KEY);
+        if (user !== null && user !== undefined) {
+            return JSON.parse(user);
+        } else {
+            return undefined;
+        }
+    }
+
     getUser(): UserData | undefined {
         if (!isPlatformBrowser(this.platformId)) {
             return;
@@ -93,23 +100,7 @@ export class SessionProvider {
         } else {
         return undefined;
         }
-    }
-
-    setUserData(user: UserData | undefined) {
-        if (user !== undefined) {
-          localStorage.setItem(this.USERDATA_KEY, JSON.stringify(user));
-        } else {
-          localStorage.removeItem(this.USERDATA_KEY);
-        }
-      }
-      getUserData(): UserData | undefined {
-        const user = localStorage.getItem(this.USERDATA_KEY);
-        if (user !== null && user !== undefined) {
-          return JSON.parse(user);
-        } else {
-          return undefined;
-        }
-      }
+    }    
     
     navigateToCharacterSelectorPage() {
         const redirectUrl = this.getRedirectUrl();

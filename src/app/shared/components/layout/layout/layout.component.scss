@@ -1,6 +1,9 @@
 @import 'colors.scss';
 @import 'fonts.scss';
 
+@import 'mobile.layout.component.scss';
+@import 'desktop.layout.component.scss';
+
 .header {
     position: absolute;
     width: 100%;
@@ -11,7 +14,6 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        width: 80%;
         padding: 12px 0;
         border-bottom: 1px solid $colors-white;
     }
@@ -24,6 +26,7 @@
         .icon {
             height: 1.5rem;
             width: 1.5rem;
+            margin-right: 0;
         }
     }
 

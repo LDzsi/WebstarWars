@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { UserData } from '../../../../../api/models/user-data';
 import { SessionProvider } from '../../../../core/providers/session.provider';
-import { MatIconRegistry } from '@angular/material/icon';
-import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import { IconService } from '../../../../services/icon/icon.service';
 
 @Component({
   selector: 'app-layout',
@@ -10,21 +10,20 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
   styleUrl: './layout.component.scss'
 })
 export class LayoutComponent {
-
   userData: UserData | undefined;
-  userIcon: SafeResourceUrl;
-  logoutIcon: SafeResourceUrl;
+  isMobile = false;
 
   constructor(
+    private breakpointObserver: BreakpointObserver,
     private session: SessionProvider,
-    private matIconRegistry: MatIconRegistry,
-    private sanitizer: DomSanitizer
+    private iconService: IconService
   ) {
-    this.userIcon = this.sanitizer.bypassSecurityTrustResourceUrl('/assets/icons/user.svg');
-    this.logoutIcon = this.sanitizer.bypassSecurityTrustResourceUrl('/assets/icons/logout.svg');
-    
-    this.matIconRegistry.addSvgIcon('user-icon', this.userIcon);
-    this.matIconRegistry.addSvgIcon('logout-icon', this.logoutIcon);
+    this.breakpointObserver.observe([Breakpoints.Handset]).subscribe((result) => {
+      this.isMobile = result.matches;
+    });
+
+    this.iconService.registerIcon('user', 'user-icon');
+    this.iconService.registerIcon('logout', 'logout-icon');
   }
 
   logout() {

@@ -1,4 +1,5 @@
 export const API_URLS = {
-    AUTH: '/authentication',
-    CHARACTERS: '/characters',
+    AUTH: '/authentication/',
+    CHARACTERS: '/characters/',
 };
+

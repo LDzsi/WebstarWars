@@ -1,0 +1,33 @@
+{
+    "UI": {
+        "Login": {
+            "Login": "Belépés",
+            "Username": "Felhasználónév",
+            "Password": "Jelszó",
+            "Header": {
+                "Title": "Webstar",
+                "Subtitle": "Frontend"
+            }
+        },
+        "CharacterSelector": {
+            "Side": "Oldal",
+            "SpecialForces": "Különleges erő"
+        },
+        "Header": {
+            "Logout": "Űrhajó elhagyása"
+        },
+        "Common": {
+            "Force": {
+                "Light": "Világos",
+                "Dark": "Sötét"
+            },
+            "Errors": {
+                "FieldRequired": "Kötelező mező",
+                "InvalidCredentials": "A megadott hitelesítő adatok nem érvényesek."
+            }
+        },
+        "Footer": {
+            "Copyright": "Webstar Csoport Kft. - © Minden jog fenntartva"
+        }
+    }
+}

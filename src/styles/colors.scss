@@ -6,3 +6,14 @@ $colors-yellow: #F7B500;
 $colors-red: #FF3232;
 $colors-blue: #00D2FF;
 $colors-green: #2ECC71;
+
+$color-palette-default: (
+    color-1: $colors-black,
+    color-2: $colors-darkgray,
+    color-3: $colors-gray,
+    color-4: $colors-white,
+    colors-5: $colors-yellow,
+    color-6: $colors-red,
+    color-7: $colors-blue,
+    color-8: $colors-green,
+);

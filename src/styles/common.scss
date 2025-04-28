@@ -1,0 +1,9 @@
+mat-error {
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out;
+    transition: visibility 0.3s ease-in-out;
+}
+  
+mat-error.ng-invalid.ng-touched {
+    opacity: 0;
+}
