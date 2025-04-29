@@ -20,7 +20,8 @@ Emiatt mind a Login mind pedig a karakterválasztó felületen kénytelen voltam
 A karakterválasztó esetében az adott kódrészt kitörölve elvileg működik a hívás.
 
 ## 📑 Egyéb tudnivalók
-Időhiány miatt végül nem tudtam belevágni az opcionális feladatokba is, viszont azért igyekeztem beletenni néhány kisebb plusz funkciót, mint például:
+Tervben volt, hogy megcsinálom az opcionális feladatokat is, de sajnos végül úgy alakult, hogy csak az első két alap feladatatot készítettem el. 
+Viszont azért igyekeztem beletenni néhány kisebb plusz funkciót, mint például:
     - Nyelvválasztó
     - Desktop és Mobil nézet
 
