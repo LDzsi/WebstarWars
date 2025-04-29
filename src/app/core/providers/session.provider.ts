@@ -24,20 +24,19 @@ export class SessionProvider {
         let result: LoginResponseModel | undefined;
 
         try {
-            result = await lastValueFrom(this.authService.login(username, password));
-        } catch (error) {
             // INDO: README-ben!
-            if(username === 'frontend@webstar.hu' && password === 's9@:8BpuC]*Q,e,A') {
-                result = {
-                    token: 'eyJhbGci-f433-4eca-940e-fa222ad4kZo',
-                    refreshToken: 'kaf5FAc2-eb78-4196-93ef-5a1e48a9Fjx',
-                    user: {
-                      email: 'frontend@webstar.hu',
-                      firstName: 'pilóta',
-                      lastName: 'Felvételiző'
-                    }
-                } as LoginResponseModel;
-            } else { throw error; }
+            result = {
+                token: 'eyJhbGci.............fa222ad4kZo',
+                refreshToken: 'kaf5FAc2..........5a1e48a9Fjx',
+                user: {
+                  email: 'frontend@webstar.hu',
+                  firstName: 'pilóta',
+                  lastName: 'Felvételiző'
+                }
+            } as LoginResponseModel;
+            //result = await lastValueFrom(this.authService.login(username, password));
+        } catch (error) {
+            throw error;
         }
 
         this.setUserData(result.user);
